@@ -14,7 +14,7 @@ export class OnlyEverGenerator {
   public api_key: string = "";
   public openAiService: OpenAiService;
 
-/// these fields will be populated inside the constructor
+  /// these fields will be populated inside the constructor
   parsedContent: any = {};
   promptForTypology: string = "";
   promptForCardGen: string = "";
@@ -30,7 +30,7 @@ export class OnlyEverGenerator {
   constructor(
     apiKey: string,
     model: string,
-    generationContent : any
+    generationContent: any
   ) {
     this.api_key = apiKey;
     this.openAiService = new OpenAiService(
@@ -44,33 +44,33 @@ export class OnlyEverGenerator {
       content: parsedData.content,
 
     },
-    // parsedData.type == 'cards' ? this.typologyResponse = parsedData.taxonomy :  this.typologyResponse = null;
-    this.typologyResponse = generationContent.content.taxonomy
-    
-    this.expectedFields =  generationContent.content.fields; //returnFields();
+      // parsedData.type == 'cards' ? this.typologyResponse = parsedData.taxonomy :  this.typologyResponse = null;
+      this.typologyResponse = generationContent.content.taxonomy
+
+    this.expectedFields = generationContent.content.fields; //returnFields();
     this.promptForTypology = generationContent.prompt.typology;
-    this.promptForCardGen =generationContent.prompt.card_generation;
+    this.promptForCardGen = generationContent.prompt.card_generation;
   }
 
 
- 
+
   async generate(
     generate_typology: boolean = false,
     generate_card: boolean = false
   ): Promise<Array<any>> {
-    let args = new GenerateArgs(generate_card, generate_typology, false, );
+    let args = new GenerateArgs(generate_card, generate_typology, false,);
     const responseToReturn = [];
     const whatNeedsToBeGenerated = args.getWhatNeedsToBeGenerated();
     for (let elem of whatNeedsToBeGenerated)
       if (elem == "generate_tyopology") {
         this.typologyResponse = await this.generateTypology(
-        this.promptForTypology
+          this.promptForTypology
         );
         responseToReturn.push(this.typologyResponse);
       } else if (elem == "generate_card") {
         /// for cards gen to occur, there must be presence of source taxonomy
-        if(this.shouldTheCardBeGeneratedAfterTypologyResponse()){
-          this.cardgenResponse =  await this.generateCard(
+        if (this.shouldTheCardBeGeneratedAfterTypologyResponse()) {
+          this.cardgenResponse = await this.generateCard(
             this.promptForCardGen,
             JSON.stringify(this.typologyResponse),
             false,
@@ -78,45 +78,45 @@ export class OnlyEverGenerator {
           responseToReturn.push(this.cardgenResponse);
 
           /// check if gap fill is required ie coverage determination 
-          // if(this.cardgenResponse.status_code == 200) {
-          //   this.gapFillResponse = await this._generationForGapFill(this.typologyResponse, this.cardgenResponse);
-          //   responseToReturn.push(this.gapFillResponse);
-          // }
+          if (this.cardgenResponse.status_code == 200) {
+            this.gapFillResponse = await this._generationForGapFill(this.typologyResponse, this.cardgenResponse);
+            responseToReturn.push(this.gapFillResponse);
+          }
 
         }
-    }
+      }
     return responseToReturn;
-   // return [typologyPrompt, cardPrompt];
-  
+    // return [typologyPrompt, cardPrompt];
+
   }
 
-  shouldTheCardBeGeneratedAfterTypologyResponse(){
-    if(this.typologyResponse){
+  shouldTheCardBeGeneratedAfterTypologyResponse() {
+    if (this.typologyResponse) {
       return this.typologyResponse?.generate_cards?.state == true;
-    }else{
+    } else {
       return false;
     }
 
   }
 
   async _generationForGapFill(typologyData: any, cardGenData: any) {
-      let gapFill = gapFilling(typologyData, cardGenData);
-      let response :any ;
-      if (
-        gapFill.remainingConcepts.length !== 0 ||
-        gapFill.remainingFacts.length !== 0
-      ) {
-        response = await this.generateCard(
-         this.promptForCardGen +
-            "Generate cards only suitable for the given remaining concepts and facts" +
-            JSON.stringify(gapFill) +
-            "Exclude generating  cards with content in the following",
-            JSON.stringify(cardGenData.cards_data),
-          true
-        );
-      }
-      return response;
-    
+    let gapFill = gapFilling(typologyData, cardGenData);
+    let response: any;
+    if (
+      gapFill.remainingConcepts.length !== 0 ||
+      gapFill.remainingFacts.length !== 0
+    ) {
+      response = await this.generateCard(
+        this.promptForCardGen +
+        "Generate cards only suitable for the given remaining concepts and facts" +
+        JSON.stringify(gapFill) +
+        "Exclude generating  cards with content in the following",
+        JSON.stringify(cardGenData.cards_data),
+        true
+      );
+    }
+    return response;
+
   }
 
 
@@ -128,7 +128,7 @@ export class OnlyEverGenerator {
       isGapFill,
       this.parsedContent.headings ?? [],
     );
-  
+
     // let response =  await this.openAiService?.sendRequest(prompt,this.parsedContent);
     // response['type'] = 'card_gen';
     return generateCardsResp;
@@ -149,25 +149,25 @@ export class OnlyEverGenerator {
     /// factsmap 
     /// {
     /// remaining_facts: [],
-     /// remaining_concepts: [],
+    /// remaining_concepts: [],
     //}
 
     /// aicards is data
-    let response :any ;
+    let response: any;
 
-      response = await this.generateCard(
-       this.promptForCardGen +
-          "Generate cards only suitable for the given remaining concepts and facts" +
-          JSON.stringify(factsMaps) +
-          "Exclude generating  cards with content in the following",
-          JSON.stringify(aiCards),
-        true
-      );
-    
+    response = await this.generateCard(
+      this.promptForCardGen +
+      "Generate cards only suitable for the given remaining concepts and facts" +
+      JSON.stringify(factsMaps) +
+      "Exclude generating  cards with content in the following",
+      JSON.stringify(aiCards),
+      true
+    );
+
     return response;
-  
-}
 
-  
+  }
+
+
 
 }
