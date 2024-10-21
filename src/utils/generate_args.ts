@@ -21,9 +21,7 @@ export class GenerateArgs{
         if(this.generate_card == true){
             returnData.push('generate_card');
         }
-        return returnData;
-        
-        
+        return returnData;    
     }
 
 }
