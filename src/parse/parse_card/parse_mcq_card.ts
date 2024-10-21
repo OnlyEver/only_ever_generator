@@ -70,7 +70,7 @@ export class ParseMcqCard {
   _validate(mcqCard: any) {
     try {
       let isQuestionValid = mcqCard.content.question.length <= 90;
-      if (isQuestionValid) {
+      if (!isQuestionValid) {
         throw new Error("Question length exceeded");
       }
 
@@ -95,7 +95,7 @@ export class ParseMcqCard {
   }
 
   _checkIfAllAnswersAreWrong(answers: any[]) {
-    let rightAnswer = answers.find((e) => e.is_corect == true);
+    let rightAnswer = answers.find((e) => e.is_correct == true);
     if (rightAnswer) {
       return true;
     } else {

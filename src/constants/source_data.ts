@@ -1352,7 +1352,368 @@ export function returnHeadings(){
 
 
 export function  returnCardResponse(){
-  return JSON.parse(`{"status_code":200,"usage_data":{"prompt_tokens":23234,"completion_tokens":2796,"total_tokens":26030},"generated_content":{"test_cards":[{"type":"mcq","card_content":{"prompt":"Which term is used to refer to the largest branch of Islam, followed by 85-90% of Muslims worldwide?","choices":[{"choice":"Sunni Islam","is_correct":true},{"choice":"Shia Islam","is_correct":false},{"choice":"Kharijites","is_correct":false},{"choice":"Ibadi","is_correct":false}]},"concepts":[{"concept_text":"Definition of Sunni Islam","reference":"Sunni Islam#Terminology"}],"facts":[{"fact_text":"85-90% of Muslims are Sunni.","reference":"Sunni Islam#Terminology"}],"bloom_level":1},{"type":"mcq","card_content":{"prompt":"Who were the first four caliphs recognized by Sunnis?","choices":[{"choice":"Abu Bakr, Umar, Uthman, Ali","is_correct":true},{"choice":"Ali, Hasan, Husayn, Yazid","is_correct":false},{"choice":"Umar, Uthman, Muawiya, Yazid","is_correct":false},{"choice":"Hasan, Husayn, Abu Bakr, Umar","is_correct":false}]},"concepts":[{"concept_text":"History of Sunni beliefs","reference":"Sunni Islam#History"}],"facts":[{"fact_text":"The first four caliphs are Abu Bakr, Umar, Uthman, Ali.","reference":"Sunni Islam#History"}],"bloom_level":1},{"type":"cloze","card_content":{"prompt":"The six {{c0: pillars}} of imān are key beliefs in Sunni Islam.","options":[{"option":"pillars","cloze":"c0"},{"option":"caliphs","cloze":"null"},{"option":"sections","cloze":"null"},{"option":"rules","cloze":"null"}]},"concepts":[{"concept_text":"Principal articles of Sunni faith","reference":"Sunni Islam#Pillars of iman"}],"facts":[{"fact_text":"The six pillars of imān are key beliefs in Sunni Islam.","reference":"Sunni Islam#Pillars of iman"}],"bloom_level":1},{"type":"mcq","card_content":{"prompt":"Which institution is considered a leading Sunni university?","choices":[{"choice":"Azhar University","is_correct":true},{"choice":"Harvard University","is_correct":false},{"choice":"Oxford University","is_correct":false},{"choice":"Yale University","is_correct":false}]},"concepts":[{"concept_text":"Sunni organizations and institutions","reference":"Sunni Islam#Sunni State institutions"}],"facts":[{"fact_text":"Azhar University is a leading Sunni institution.","reference":"Sunni Islam#Sunni State institutions"}],"bloom_level":1},{"type":"mcq","card_content":{"prompt":"What is a fundamental self-image of Sunni Muslims concerning their religious identity?","choices":[{"choice":"They are the saved sect","is_correct":true},{"choice":"They are the oppressed sect","is_correct":false},{"choice":"They are the innovators","is_correct":false},{"choice":"They are the deviants","is_correct":false}]},"concepts":[{"concept_text":"Identity as the 'saved sect'","reference":"Sunni Islam#Self-image of the Sunnis"}],"facts":[{"fact_text":"Sunnis view themselves as the saved sect.","reference":"Sunni Islam#Self-image of the Sunnis"}],"bloom_level":1},{"type":"mcq","card_content":{"prompt":"What major rivalry exists within Sunni Islam?","choices":[{"choice":"Between Ashʿarīya and Salafīya","is_correct":true},{"choice":"Between Sufis and Wahhabis","is_correct":false},{"choice":"Between Hanafis and Malikis","is_correct":false},{"choice":"Between Shafi'is and Hanbalis","is_correct":false}]},"concepts":[{"concept_text":"Rivalry between Sunni theological schools","reference":"Sunni Islam#Rivalry between Ashʿarīya and Salafīya and the 2016 Sunni conferences"}],"facts":[],"bloom_level":1},{"type":"cloze","card_content":{"prompt":"Sunni Islam centers around four {{c0: legal schools}}.","options":[{"option":"legal schools","cloze":"c0"},{"option":"pillars of faith","cloze":"null"},{"option":"caliphs","cloze":"null"},{"option":"sects","cloze":"null"}]},"concepts":[{"concept_text":"Sunni jurisprudence and its sources","reference":"Sunni Islam#Jurisprudence"}],"facts":[{"fact_text":"Sunni Islam centers around four legal schools.","reference":"Sunni Islam#Jurisprudence"}],"bloom_level":1},{"type":"match","card_content":{"ash'ari":"Founded by Abu al-Hasan al-Ash'ari","maturidi":"Founded by Abu Mansur al-Maturidi","athari":"Strict textualism in interpreting Qur'an and sunnah"},"concepts":[{"concept_text":"Rivalry between Sunni theological schools","reference":"Sunni Islam#Rivalry between Ashʿarīya and Salafīya and the 2016 Sunni conferences"}],"facts":[],"bloom_level":2},{"type":"mcq","card_content":{"prompt":"Which of the following is NOT one of the six principal articles of faith in Sunni Islam?","choices":[{"choice":"Belief in the Prophets of God","is_correct":false},{"choice":"Belief in Angels","is_correct":false},{"choice":"Belief in Trinity","is_correct":true},{"choice":"Belief in Resurrection after Death","is_correct":false}]},"concepts":[{"concept_text":"Principal articles of Sunni faith","reference":"Sunni Islam#Pillars of iman"}],"facts":[],"bloom_level":2},{"type":"cloze","card_content":{"prompt":"A well-known Hadith says that the Muslim Umma will split into 73 sects, only one of which will be {{c0: saved}}.","options":[{"option":"saved","cloze":"c0"},{"option":"punished","cloze":"null"},{"option":"enriched","cloze":"null"},{"option":"condemned","cloze":"null"}]},"concepts":[{"concept_text":"Identity as the 'saved sect'","reference":"Sunni Islam#Self-image of the Sunnis"}],"facts":[],"bloom_level":2},{"type":"mcq","card_content":{"prompt":"What does 'jama' in the phrase 'ahl as-sunna wal-jama' signify?","choices":[{"choice":"Community","is_correct":true},{"choice":"Unity","is_correct":false},{"choice":"Faith","is_correct":false},{"choice":"Law","is_correct":false}]},"concepts":[{"concept_text":"Definition of Sunni Islam","reference":"Sunni Islam#Terminology"}],"facts":[],"bloom_level":1},{"type":"mcq","card_content":{"prompt":"Which of the following sources forms the basis for Sunni jurisprudence?","choices":[{"choice":"The Quran and Hadith","is_correct":true},{"choice":"Solely Quran","is_correct":false},{"choice":"Only the Hadith","is_correct":false},{"choice":"The Quran and Sira","is_correct":false}]},"concepts":[{"concept_text":"Sunni jurisprudence and its sources","reference":"Sunni Islam#Jurisprudence"}],"facts":[],"bloom_level":2},{"type":"cloze","card_content":{"prompt":"Sunni Muslims accept the {{c0: hadith}} collections of Bukhari and Muslim as the most authentic.","options":[{"option":"hadith","cloze":"c0"},{"option":"Qur'an","cloze":"null"},{"option":"tafsir","cloze":"null"},{"option":"fatwa","cloze":"null"}]},"concepts":[{"concept_text":"Sunni view of hadith","reference":"Sunni Islam#Sunni view of hadith"}],"facts":[],"bloom_level":1},{"type":"cloze","card_content":{"prompt":"Sunni jurisprudence is derived from the Quran, hadith, {{c0: juristic consensus}}, and analogical reasoning.","options":[{"option":"juristic consensus","cloze":"c0"},{"option":"personal opinion","cloze":"null"},{"option":"cultural practice","cloze":"null"},{"option":"political authority","cloze":"null"}]},"concepts":[{"concept_text":"Sunni jurisprudence and its sources","reference":"Sunni Islam#Jurisprudence"}],"facts":[],"bloom_level":3},{"type":"cloze","card_content":{"prompt":"One of the most important teaching institutions of Sunni Islam worldwide is the {{c0: Azhar}} in Egypt.","options":[{"option":"Azhar","cloze":"c0"},{"option":"Al-Haram","cloze":"null"},{"option":"Al-Aqsa","cloze":"null"},{"option":"Blue Mosque","cloze":"null"}]},"concepts":[{"concept_text":"Sunni organizations and institutions","reference":"Sunni Islam#Sunni State institutions"}],"facts":[{"fact_text":"Azhar University is a leading Sunni institution.","reference":"Sunni Islam#Sunni State institutions"}],"bloom_level":2}]},"generated_at":"2024-09-11T08:26:12.000Z"}`);
+  return  cardResponse;
 }
+
+
+let cardResponse = {
+  status_code: 200,
+  metadata: {},
+  usage_data: {
+    prompt_tokens: 23234,
+    completion_tokens: 2796,
+    total_tokens: 26030,
+  },
+  generated_content: {
+    test_cards: [
+      {
+        type: "mcq",
+        card_content: {
+          prompt:
+            "Which term is used to refer to the largest branch of Islam, followed by 85-90% of Muslims worldwide?",
+          choices: [
+            { choice: "Sunni Islam", is_correct: true },
+            { choice: "Shia Islam", is_correct: false },
+            { choice: "Kharijites", is_correct: false },
+            { choice: "Ibadi", is_correct: false },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Definition of Sunni Islam",
+            reference: "Sunni Islam#Terminology",
+          },
+        ],
+        facts: [
+          {
+            fact_text: "85-90% of Muslims are Sunni.",
+            reference: "Sunni Islam#Terminology",
+          },
+        ],
+        bloom_level: 1,
+      },
+      {
+        type: "mcq",
+        card_content: {
+          prompt: "Who were the first four caliphs recognized by Sunnis?",
+          choices: [
+            { choice: "Abu Bakr, Umar, Uthman, Ali", is_correct: true },
+            { choice: "Ali, Hasan, Husayn, Yazid", is_correct: false },
+            { choice: "Umar, Uthman, Muawiya, Yazid", is_correct: false },
+            { choice: "Hasan, Husayn, Abu Bakr, Umar", is_correct: false },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "History of Sunni beliefs",
+            reference: "Sunni Islam#History",
+          },
+        ],
+        facts: [
+          {
+            fact_text:
+              "The first four caliphs are Abu Bakr, Umar, Uthman, Ali.",
+            reference: "Sunni Islam#History",
+          },
+        ],
+        bloom_level: 1,
+      },
+      {
+        type: "cloze",
+        card_content: {
+          prompt:
+            "The six _____ of imān are key beliefs in Sunni Islam.",
+          options: [
+            { option: "pillars", cloze: "c0" },
+            { option: "caliphs", cloze: "null" },
+            { option: "sections", cloze: "null" },
+            { option: "rules", cloze: "null" },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Principal articles of Sunni faith",
+            reference: "Sunni Islam#Pillars of iman",
+          },
+        ],
+        facts: [
+          {
+            fact_text:
+              "The six pillars of imān are key beliefs in Sunni Islam.",
+            reference: "Sunni Islam#Pillars of iman",
+          },
+        ],
+        bloom_level: 1,
+      },
+      {
+        type: "mcq",
+        card_content: {
+          prompt: "Which institution is considered a leading Sunni university?",
+          choices: [
+            { choice: "Azhar University", is_correct: true },
+            { choice: "Harvard University", is_correct: false },
+            { choice: "Oxford University", is_correct: false },
+            { choice: "Yale University", is_correct: false },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Sunni organizations and institutions",
+            reference: "Sunni Islam#Sunni State institutions",
+          },
+        ],
+        facts: [
+          {
+            fact_text: "Azhar University is a leading Sunni institution.",
+            reference: "Sunni Islam#Sunni State institutions",
+          },
+        ],
+        bloom_level: 1,
+      },
+      {
+        type: "mcq",
+        card_content: {
+          prompt:
+            "What is a fundamental self-image of Sunni Muslims concerning their religious identity?",
+          choices: [
+            { choice: "They are the saved sect", is_correct: true },
+            { choice: "They are the oppressed sect", is_correct: false },
+            { choice: "They are the innovators", is_correct: false },
+            { choice: "They are the deviants", is_correct: false },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Identity as the 'saved sect'",
+            reference: "Sunni Islam#Self-image of the Sunnis",
+          },
+        ],
+        facts: [
+          {
+            fact_text: "Sunnis view themselves as the saved sect.",
+            reference: "Sunni Islam#Self-image of the Sunnis",
+          },
+        ],
+        bloom_level: 1,
+      },
+      {
+        type: "mcq",
+        card_content: {
+          prompt: "What major rivalry exists within Sunni Islam?",
+          choices: [
+            { choice: "Between Ashʿarīya and Salafīya", is_correct: true },
+            { choice: "Between Sufis and Wahhabis", is_correct: false },
+            { choice: "Between Hanafis and Malikis", is_correct: false },
+            { choice: "Between Shafi'is and Hanbalis", is_correct: false },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Rivalry between Sunni theological schools",
+            reference:
+              "Sunni Islam#Rivalry between Ashʿarīya and Salafīya and the 2016 Sunni conferences",
+          },
+        ],
+        facts: [],
+        bloom_level: 1,
+      },
+      {
+        type: "cloze",
+        card_content: {
+          prompt: "Sunni Islam centers around four {{c0: legal schools}}.",
+          options: [
+            { option: "legal schools", cloze: "c0" },
+            { option: "pillars of faith", cloze: "null" },
+            { option: "caliphs", cloze: "null" },
+            { option: "sects", cloze: "null" },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Sunni jurisprudence and its sources",
+            reference: "Sunni Islam#Jurisprudence",
+          },
+        ],
+        facts: [
+          {
+            fact_text: "Sunni Islam centers around four legal schools.",
+            reference: "Sunni Islam#Jurisprudence",
+          },
+        ],
+        bloom_level: 1,
+      },
+      {
+        type: "match",
+        card_content: {
+          "ash'ari": "Founded by Abu al-Hasan al-Ash'ari",
+          maturidi: "Founded by Abu Mansur al-Maturidi",
+          athari: "Strict textualism in interpreting Qur'an and sunnah",
+        },
+        concepts: [
+          {
+            concept_text: "Rivalry between Sunni theological schools",
+            reference:
+              "Sunni Islam#Rivalry between Ashʿarīya and Salafīya and the 2016 Sunni conferences",
+          },
+        ],
+        facts: [],
+        bloom_level: 2,
+      },
+      {
+        type: "mcq",
+        card_content: {
+          prompt:
+            "Which of the following is NOT one of the six principal articles of faith in Sunni Islam?",
+          choices: [
+            { choice: "Belief in the Prophets of God", is_correct: false },
+            { choice: "Belief in Angels", is_correct: false },
+            { choice: "Belief in Trinity", is_correct: true },
+            { choice: "Belief in Resurrection after Death", is_correct: false },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Principal articles of Sunni faith",
+            reference: "Sunni Islam#Pillars of iman",
+          },
+        ],
+        facts: [],
+        bloom_level: 2,
+      },
+      {
+        type: "cloze",
+        card_content: {
+          prompt:
+            "A well-known Hadith says that the Muslim Umma will split into 73 sects, only one of which will be {{c0: saved}}.",
+          options: [
+            { option: "saved", cloze: "c0" },
+            { option: "punished", cloze: "null" },
+            { option: "enriched", cloze: "null" },
+            { option: "condemned", cloze: "null" },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Identity as the 'saved sect'",
+            reference: "Sunni Islam#Self-image of the Sunnis",
+          },
+        ],
+        facts: [],
+        bloom_level: 2,
+      },
+      {
+        type: "mcq",
+        card_content: {
+          prompt:
+            "What does 'jama' in the phrase 'ahl as-sunna wal-jama' signify?",
+          choices: [
+            { choice: "Community", is_correct: true },
+            { choice: "Unity", is_correct: false },
+            { choice: "Faith", is_correct: false },
+            { choice: "Law", is_correct: false },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Definition of Sunni Islam",
+            reference: "Sunni Islam#Terminology",
+          },
+        ],
+        facts: [],
+        bloom_level: 1,
+      },
+      {
+        type: "mcq",
+        card_content: {
+          prompt:
+            "Which of the following sources forms the basis for Sunni jurisprudence?",
+          choices: [
+            { choice: "The Quran and Hadith", is_correct: true },
+            { choice: "Solely Quran", is_correct: false },
+            { choice: "Only the Hadith", is_correct: false },
+            { choice: "The Quran and Sira", is_correct: false },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Sunni jurisprudence and its sources",
+            reference: "Sunni Islam#Jurisprudence",
+          },
+        ],
+        facts: [],
+        bloom_level: 2,
+      },
+      {
+        type: "cloze",
+        card_content: {
+          prompt:
+            "Sunni Muslims accept the {{c0: hadith}} collections of Bukhari and Muslim as the most authentic.",
+          options: [
+            { option: "hadith", cloze: "c0" },
+            { option: "Qur'an", cloze: "null" },
+            { option: "tafsir", cloze: "null" },
+            { option: "fatwa", cloze: "null" },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Sunni view of hadith",
+            reference: "Sunni Islam#Sunni view of hadith",
+          },
+        ],
+        facts: [],
+        bloom_level: 1,
+      },
+      {
+        type: "cloze",
+        card_content: {
+          prompt:
+            "Sunni jurisprudence is derived from the Quran, hadith, {{c0: juristic consensus}}, and analogical reasoning.",
+          options: [
+            { option: "juristic consensus", cloze: "c0" },
+            { option: "personal opinion", cloze: "null" },
+            { option: "cultural practice", cloze: "null" },
+            { option: "political authority", cloze: "null" },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Sunni jurisprudence and its sources",
+            reference: "Sunni Islam#Jurisprudence",
+          },
+        ],
+        facts: [],
+        bloom_level: 3,
+      },
+      {
+        type: "cloze",
+        card_content: {
+          prompt:
+            "One of the most important teaching institutions of Sunni Islam worldwide is the {{c0: Azhar}} in Egypt.",
+          options: [
+            { option: "Azhar", cloze: "c0" },
+            { option: "Al-Haram", cloze: "null" },
+            { option: "Al-Aqsa", cloze: "null" },
+            { option: "Blue Mosque", cloze: "null" },
+          ],
+        },
+        concepts: [
+          {
+            concept_text: "Sunni organizations and institutions",
+            reference: "Sunni Islam#Sunni State institutions",
+          },
+        ],
+        facts: [
+          {
+            fact_text: "Azhar University is a leading Sunni institution.",
+            reference: "Sunni Islam#Sunni State institutions",
+          },
+        ],
+        bloom_level: 2,
+      },
+    ],
+  },
+  generated_at: "2024-09-11T08:26:12.000Z",
+};
 
 
