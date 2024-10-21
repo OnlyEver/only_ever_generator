@@ -96,11 +96,20 @@ export class ParseSourceContent{
     }
 
     parseVideoContent(data: Array<any>){
-        let timeCodes :Array<any> = [];
-        data.map((e) => timeCodes.push(...e.children));
-        let cleanedData = this.cleanTranscript(timeCodes);
-        let collapsedData = this.collapseTimeCodes(cleanedData,100);
-        return collapsedData;
+        let finalChapters :Array<any> = [];
+        // let cleanedData = this.cleanTranscript(timeCodes);
+        data.forEach((e)=>{
+            let combinedContent = this.cleanTranscript(e);
+            finalChapters.push({
+                "startTime": e.startTime,
+                "endTime": e.endTime,
+                "content": combinedContent,
+                "title": e.content
+            });
+        });
+
+        return finalChapters;
+        
         
     }
 
@@ -111,30 +120,20 @@ export class ParseSourceContent{
 }
 
 // remove non-essential content
- cleanTranscript(data: Array<any>) {
-    // Clean the transcript by removing non-speech content, normalizing whitespace, and keeping only necessary fields.
-    const cleanedData = <any>[];
-    
-    data.forEach(entry => {
-        let content = (entry.content || '').trim();
-        
-        // Skip non-speech content
-        if (this.isNonSpeech(content)) return;
+ cleanTranscript(data: any) {
+    let finalContent = '';
+    let children = data.children ?? [];
 
-        // Normalize whitespace in content
+    children.forEach((e:any)=>{
+        let content = (e.content || "").trim();
+
+        if(this.isNonSpeech(content)) return;
+
         content = content.replace(/\s+/g, ' ');
-
-        // Only keep start_time, end_time, content
-        const currentEntry = {
-            start_time: entry.startTime,
-            end_time: entry.endTime,
-            content: content
-        };
-
-        cleanedData.push(currentEntry);
+        finalContent += content;
     });
 
-    return cleanedData;
+    return finalContent;
 }
 
 // collapse the timecode to 30 seconds

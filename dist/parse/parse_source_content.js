@@ -87,11 +87,18 @@ class ParseSourceContent {
         return sanitizedBlocks;
     }
     parseVideoContent(data) {
-        let timeCodes = [];
-        data.map((e) => timeCodes.push(...e.children));
-        let cleanedData = this.cleanTranscript(timeCodes);
-        let collapsedData = this.collapseTimeCodes(cleanedData, 100);
-        return collapsedData;
+        let finalChapters = [];
+        // let cleanedData = this.cleanTranscript(timeCodes);
+        data.forEach((e) => {
+            let combinedContent = this.cleanTranscript(e);
+            finalChapters.push({
+                "startTime": e.startTime,
+                "endTime": e.endTime,
+                "content": combinedContent,
+                "title": e.content
+            });
+        });
+        return finalChapters;
     }
     // remove content inside [] which denotes non-speech sounds
     isNonSpeech(content) {
@@ -100,24 +107,17 @@ class ParseSourceContent {
     }
     // remove non-essential content
     cleanTranscript(data) {
-        // Clean the transcript by removing non-speech content, normalizing whitespace, and keeping only necessary fields.
-        const cleanedData = [];
-        data.forEach(entry => {
-            let content = (entry.content || '').trim();
-            // Skip non-speech content
+        var _a;
+        let finalContent = '';
+        let children = (_a = data.children) !== null && _a !== void 0 ? _a : [];
+        children.forEach((e) => {
+            let content = (e.content || "").trim();
             if (this.isNonSpeech(content))
                 return;
-            // Normalize whitespace in content
             content = content.replace(/\s+/g, ' ');
-            // Only keep start_time, end_time, content
-            const currentEntry = {
-                start_time: entry.startTime,
-                end_time: entry.endTime,
-                content: content
-            };
-            cleanedData.push(currentEntry);
+            finalContent += content;
         });
-        return cleanedData;
+        return finalContent;
     }
     // collapse the timecode to 30 seconds
     collapseTimeCodes(data, maxDuration = 30.0) {
