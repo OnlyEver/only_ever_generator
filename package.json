@@ -1,6 +1,6 @@
 {
   "name": "only_ever_generator",
-  "version": "0.5.6",
+  "version": "0.5.9",
   "main": "dist/index.js",
   "scripts": {
     "start": "npm run build && nodemon dist/index.js",

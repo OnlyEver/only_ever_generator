@@ -16,15 +16,14 @@ export class GenerateCards {
   ) {
     let response = await this.openAiService?.sendRequest(prompt, parsedContent);
     // console.log("response to card generation ", response);
-    response["request_type"] = {
-      type: "breadth",
-      sub_type: isGapFill ? "gap_fill" : "card_gen",
-      n: isGapFill ? 1 : 2,
-      bloom_level: 1,
-    };
+    // response["request_type"] = ;
     response.metadata = {
       req_time: response.generated_at ?? new Date(),
-      req_type: response.request_type,
+      req_type: {
+        type: "depth",
+        n: isGapFill ? 1 : 2,
+        bloom_level: 1,
+      },
       req_tokens: response.usage_data?.prompt_tokens,
       res_tokens: response.usage_data?.completion_tokens,
       prompt_tokens_details: response.usage_data?.prompt_tokens_details,

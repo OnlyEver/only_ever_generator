@@ -108,8 +108,8 @@ export class OnlyEverGenerator {
       this.typologyResponse.concepts = gapFill.remainingConcepts;
       response = await this.generateCard(
         this.promptForCardGen +
-          "Generate cards only suitable for the given remaining concepts and facts" +
-          JSON.stringify(gapFill),
+        "Generate cards only suitable for the given remaining concepts and facts" +
+        JSON.stringify(gapFill),
 
         "",
         true
@@ -159,9 +159,9 @@ export class OnlyEverGenerator {
 
     response = await this.generateCard(
       this.promptForCardGen +
-        "Generate cards only suitable for the given remaining concepts and facts" +
-        JSON.stringify(factsMaps) +
-        "Exclude generating  cards with content in the following",
+      "Generate cards only suitable for the given remaining concepts and facts" +
+      JSON.stringify(factsMaps) +
+      "Exclude generating  cards with content in the following",
       JSON.stringify(aiCards),
       true
     );
