@@ -12,16 +12,18 @@ export class GenerateCards {
     prompt: string,
     parsedContent: string,
     isGapFill: boolean,
-    taxonomy: any
+    taxonomy: any,
+    n: number = 0,
   ) {
     let response = await this.openAiService?.sendRequest(prompt, parsedContent);
+    var updatedNumber = n + 1;
     // console.log("response to card generation ", response);
     // response["request_type"] = ;
     response.metadata = {
       req_time: response.generated_at ?? new Date(),
       req_type: {
         type: "depth",
-        n: isGapFill ? 1 : 2,
+        n: updatedNumber,
         bloom_level: 1,
       },
       req_tokens: response.usage_data?.prompt_tokens,

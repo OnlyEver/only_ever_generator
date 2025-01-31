@@ -95,14 +95,14 @@ class OnlyEverGenerator {
                 this.typologyResponse.concepts = gapFill.remainingConcepts;
                 response = yield this.generateCard(this.promptForCardGen +
                     "Generate cards only suitable for the given remaining concepts and facts" +
-                    JSON.stringify(gapFill), "", true);
+                    JSON.stringify(gapFill), "", true, 1);
             }
             return response;
         });
     }
-    generateCard(prompt, additionalContent, isGapFill) {
-        return __awaiter(this, void 0, void 0, function* () {
-            let generateCardsResp = yield new generate_cards_1.GenerateCards(this.openAiService).generateCards(prompt !== null && prompt !== void 0 ? prompt : "", JSON.stringify(this.parsedContent) + additionalContent, isGapFill, this.parsedContent.taxonomy);
+    generateCard(prompt_1, additionalContent_1, isGapFill_1) {
+        return __awaiter(this, arguments, void 0, function* (prompt, additionalContent, isGapFill, n = 0) {
+            let generateCardsResp = yield new generate_cards_1.GenerateCards(this.openAiService).generateCards(prompt !== null && prompt !== void 0 ? prompt : "", JSON.stringify(this.parsedContent) + additionalContent, isGapFill, this.parsedContent.taxonomy, n);
             // let response =  await this.openAiService?.sendRequest(prompt,this.parsedContent);
             // response['type'] = 'card_gen';
             return generateCardsResp;
@@ -114,8 +114,8 @@ class OnlyEverGenerator {
             return response;
         });
     }
-    gapFill(factsMaps, aiCards) {
-        return __awaiter(this, void 0, void 0, function* () {
+    gapFill(factsMaps_1, aiCards_1) {
+        return __awaiter(this, arguments, void 0, function* (factsMaps, aiCards, n = 0) {
             /// factsmap
             /// {
             /// remaining_facts: [],
@@ -126,7 +126,7 @@ class OnlyEverGenerator {
             response = yield this.generateCard(this.promptForCardGen +
                 "Generate cards only suitable for the given remaining concepts and facts" +
                 JSON.stringify(factsMaps) +
-                "Exclude generating  cards with content in the following", JSON.stringify(aiCards), true);
+                "Exclude generating  cards with content in the following", JSON.stringify(aiCards), true, n);
             return response;
         });
     }

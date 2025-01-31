@@ -15,17 +15,18 @@ class GenerateCards {
     constructor(openAiService) {
         this.openAiService = openAiService;
     }
-    generateCards(prompt, parsedContent, isGapFill, taxonomy) {
-        return __awaiter(this, void 0, void 0, function* () {
+    generateCards(prompt_1, parsedContent_1, isGapFill_1, taxonomy_1) {
+        return __awaiter(this, arguments, void 0, function* (prompt, parsedContent, isGapFill, taxonomy, n = 0) {
             var _a, _b, _c, _d, _e;
             let response = yield ((_a = this.openAiService) === null || _a === void 0 ? void 0 : _a.sendRequest(prompt, parsedContent));
+            var updatedNumber = n + 1;
             // console.log("response to card generation ", response);
             // response["request_type"] = ;
             response.metadata = {
                 req_time: (_b = response.generated_at) !== null && _b !== void 0 ? _b : new Date(),
                 req_type: {
                     type: "depth",
-                    n: isGapFill ? 1 : 2,
+                    n: updatedNumber,
                     bloom_level: 1,
                 },
                 req_tokens: (_c = response.usage_data) === null || _c === void 0 ? void 0 : _c.prompt_tokens,
