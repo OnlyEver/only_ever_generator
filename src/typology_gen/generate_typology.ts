@@ -32,7 +32,10 @@ export class GenerateTypology {
       };
       response.metadata = {
         req_time: response.generated_at ?? new Date(),
-        req_type: response.request_type,
+        req_type: {
+          type: "breadth",
+          n: 1,
+        },
         req_tokens: response.usage_data?.prompt_tokens,
         res_tokens: response.usage_data?.completion_tokens,
         prompt_tokens_details: response.usage_data?.prompt_tokens_details,
@@ -63,7 +66,7 @@ export class GenerateTypology {
       facts: generatedContent.facts,
       generate_cards: generatedContent.generate_cards,
       summary_cards: generatedContent.summary_cards,
-      type: responseData.type,
+      // type: responseData.type,
     };
   }
 

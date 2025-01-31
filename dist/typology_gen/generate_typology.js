@@ -25,10 +25,16 @@ class GenerateTypology {
             var _a, _b, _c, _d, _e;
             try {
                 const response = yield ((_a = this.openAiService) === null || _a === void 0 ? void 0 : _a.sendRequest(this.prompt, this.content));
-                response["type"] = "typology";
+                response["request_type"] = {
+                    type: "breadth",
+                    n: 1,
+                };
                 response.metadata = {
                     req_time: (_b = response.generated_at) !== null && _b !== void 0 ? _b : new Date(),
-                    req_type: response.type,
+                    req_type: {
+                        type: "breadth",
+                        n: 1,
+                    },
                     req_tokens: (_c = response.usage_data) === null || _c === void 0 ? void 0 : _c.prompt_tokens,
                     res_tokens: (_d = response.usage_data) === null || _d === void 0 ? void 0 : _d.completion_tokens,
                     prompt_tokens_details: (_e = response.usage_data) === null || _e === void 0 ? void 0 : _e.prompt_tokens_details,
@@ -61,7 +67,7 @@ class GenerateTypology {
             facts: generatedContent.facts,
             generate_cards: generatedContent.generate_cards,
             summary_cards: generatedContent.summary_cards,
-            type: responseData.type,
+            // type: responseData.type,
         };
     }
     parseFields(fields) {
